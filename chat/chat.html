@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Chat</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        #chat-container {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #ccc;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        .chat-message {
+            padding: 5px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            position: relative;
+        }
+        .chat-message.self-user {
+            background-color: #03a9f4;
+            text-align: right;
+        }
+        .chat-message.self-customer {
+            background-color: #03fc84;
+            text-align: right;
+        }
+        .chat-message.other {
+            background-color: #ddd;
+        }
+        .status {
+            font-size: 0.8em;
+            color: #555;
+        }
+        .input-group-multimedia {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Gym Chat</h2>
+        <div id="chat-container"></div>
+
+        <!-- Multimedia Input Group -->
+        <div class="input-group-multimedia">
+            <button id="send-video" class="btn btn-secondary">Video</button>
+            <button id="send-image" class="btn btn-secondary">Image</button>
+            <button id="send-audio" class="btn btn-secondary">Audio</button>
+            <button id="send-location" class="btn btn-secondary">Location</button>
+            <button id="send-contact" class="btn btn-secondary">Contact</button>
+            <button id="send-poll" class="btn btn-secondary">Poll</button>
+            <button id="send-document" class="btn btn-secondary">Document</button>
+        </div>
+
+        <!-- Message Input Group -->
+        <div class="input-group mb-3">
+            <select id="user-type" class="custom-select">
+                <option value="User">User</option>
+                <option value="Customer">Customer</option>
+            </select>
+            <input type="text" id="chat-input" class="form-control" placeholder="Type your message...">
+            <div class="input-group-append">
+                <button id="send-btn" class="btn btn-primary">Send</button>
+            </div>
+        </div>
+
+        <button id="delete-all-btn" class="btn btn-danger">Delete All Messages</button>
+    </div>
+
+    <script>
+        // Initialize WebSocket connection
+        const ws = new WebSocket('ws://localhost:8080/chat');
+
+        // Elements
+        const chatContainer = document.getElementById('chat-container');
+        const chatInput = document.getElementById('chat-input');
+        const sendBtn = document.getElementById('send-btn');
+        const userTypeSelect = document.getElementById('user-type');
+
+        // Multimedia buttons
+        const sendVideoBtn = document.getElementById('send-video');
+        const sendImageBtn = document.getElementById('send-image');
+        const sendAudioBtn = document.getElementById('send-audio');
+        const sendLocationBtn = document.getElementById('send-location');
+        const sendContactBtn = document.getElementById('send-contact');
+        const sendPollBtn = document.getElementById('send-poll');
+        const sendDocumentBtn = document.getElementById('send-document');
+
+        // Elements for file input
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.style.display = 'none';
+        document.body.appendChild(fileInput);
+
+        // Add WebSocket event listeners
+        ws.onmessage = (event) => {
+            const messageData = JSON.parse(event.data);
+            addMessage(messageData.content, messageData.type, messageData.status);
+        };
+
+        // Send text message
+        sendBtn.addEventListener('click', () => {
+            const message = chatInput.value;
+            const userType = userTypeSelect.value;
+            if (message) {
+                const formattedMessage = { type: 'text', content: `${userType}: ${message}`, status: 'sending' };
+                ws.send(JSON.stringify(formattedMessage));
+                addMessage(formattedMessage.content, `self-${userType.toLowerCase()}`, 'sending');
+                chatInput.value = '';
+            }
+        });
+
+        // Send multimedia messages
+        sendVideoBtn.addEventListener('click', () => sendFile('video'));
+        sendImageBtn.addEventListener('click', () => sendFile('image'));
+        sendAudioBtn.addEventListener('click', () => sendFile('audio'));
+        sendDocumentBtn.addEventListener('click', () => sendFile('document'));
+        sendLocationBtn.addEventListener('click', () => shareLocation());
+        sendContactBtn.addEventListener('click', () => shareContact());
+        sendPollBtn.addEventListener('click', () => createPoll());
+
+        // Function to handle file uploads (video, image, audio, document)
+        function sendFile(type) {
+            fileInput.onchange = () => {
+                const file = fileInput.files[0];
+                if (file) {
+                    // Send file data to the server (e.g., using WebSocket, fetch, or another method)
+                    const reader = new FileReader();
+                    reader.onload = () => {
+                        const userType = userTypeSelect.value;
+                        const formattedMessage = { type: type, content: reader.result, status: 'sending' };
+                        ws.send(JSON.stringify(formattedMessage));
+                        addMessage(`${userType} sent a ${type}`, `self-${userType.toLowerCase()}`, 'sending');
+                    };
+                    reader.readAsDataURL(file); // Convert file to base64
+                }
+            };
+            fileInput.click(); // Trigger file input
+        }
+
+        // Function to handle location sharing
+        function shareLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const userType = userTypeSelect.value;
+                    const locationData = `https://www.google.com/maps?q=${position.coords.latitude},${position.coords.longitude}`;
+                    const formattedMessage = { type: 'location', content: locationData, status: 'sending' };
+                    ws.send(JSON.stringify(formattedMessage));
+                    addMessage(`${userType} shared a location`, `self-${userType.toLowerCase()}`, 'sending');
+                });
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+        }
+
+        // Function to handle contact sharing (dummy data for demonstration)
+        function shareContact() {
+            const userType = userTypeSelect.value;
+            const contactData = 'Contact Name: John Doe, Phone: +123456789';
+            const formattedMessage = { type: 'contact', content: contactData, status: 'sending' };
+            ws.send(JSON.stringify(formattedMessage));
+            addMessage(`${userType} shared a contact`, `self-${userType.toLowerCase()}`, 'sending');
+        }
+
+        // Function to create and share a poll (dummy data for demonstration)
+        function createPoll() {
+            const userType = userTypeSelect.value;
+            const pollData = 'Poll: Do you like this chat? Options: Yes, No';
+            const formattedMessage = { type: 'poll', content: pollData, status: 'sending' };
+            ws.send(JSON.stringify(formattedMessage));
+            addMessage(`${userType} created a poll`, `self-${userType.toLowerCase()}`, 'sending');
+        }
+
+        // Add message to chat container
+        function addMessage(content, type, status) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('chat-message', type);
+            messageElement.innerHTML = `<span>${content}</span> <br><span class="status">${status}</span>`;
+            chatContainer.appendChild(messageElement);
+            chatContainer.scrollTop = chatContainer.scrollHeight; // Auto-scroll to the bottom
+        }
+
+        // Delete all messages
+        document.getElementById('delete-all-btn').addEventListener('click', () => {
+            chatContainer.innerHTML = '';
+        });
+    </script>
+</body>
+</html>

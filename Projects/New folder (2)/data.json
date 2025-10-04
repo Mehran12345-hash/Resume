@@ -1,0 +1,55 @@
+{
+    "categories": [
+      {
+        "id": 1,
+        "name": "Education",
+        "description": "Resources for learning and teaching."
+      },
+      {
+        "id": 2,
+        "name": "Technology",
+        "description": "Latest trends in tech."
+      },
+      {
+        "id": 3,
+        "name": "Health",
+        "description": "Tips and resources for a healthy lifestyle."
+      },
+      {
+        "id": 4,
+        "name": "Travel",
+        "description": "Guides and tips for traveling."
+      },
+      {
+        "id": 5,
+        "name": "Sports",
+        "description": "Updates and insights on various sports."
+      },
+      {
+        "id": 6,
+        "name": "Entertainment",
+        "description": "Movies, music, and more."
+      },
+      {
+        "id": 7,
+        "name": "Business",
+        "description": "News and resources for entrepreneurs."
+      },
+      {
+        "id": 8,
+        "name": "Science",
+        "description": "Discoveries and innovations in science."
+      },
+      {
+        "id": 9,
+        "name": "Food",
+        "description": "Recipes and culinary tips."
+      },
+      {
+        "id": 10,
+        "name": "Lifestyle",
+        "description": "Trends and advice for everyday living."
+      }
+    ]
+  }
+  

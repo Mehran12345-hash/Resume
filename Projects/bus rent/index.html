@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Rental Cards</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* body {
+            background: #282c34;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+           
+        } */
+        .cards_all {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap */
+    justify-content: center; /* Center align the cards */
+    padding: 20px;
+}
+
+.cards {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Ensure cards wrap within this container */
+    max-width: 1200px; /* Optional: Set a max width for the card container */
+    /* margin: 0 auto; Center the cards container */
+}
+
+.card {
+    background: #4d4d4d;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 100%; /* Use 100% height for better responsiveness */
+    max-width: 400px; /* Set maximum width for the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 15px; /* Margin between cards */
+}
+
+/* Media query to ensure cards are responsive */
+@media (max-width: 768px) {
+    .card {
+        max-width: 90%; /* Full width for smaller screens */
+        margin: 10px; /* Smaller margin on mobile */
+    }
+}
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+        }
+        .card img {
+            width: 95%;
+            border-bottom: 1px solid #00aaff;
+            margin-bottom: 6px;
+        }
+        .card-title {
+            text-align: center;
+            padding: 8px;
+            font-size: 1.1rem;
+            color: #00aaff;
+        }
+        .card-title i {
+            color: #ffd700;
+            margin-right: 5px;
+        }
+        .rental-options {
+            display: flex;
+            justify-content: space-between; /* Distribute space between the options */
+            margin-bottom: 10px;
+        }
+        .hour {
+            font-size: 1rem;
+            color: #000102;
+            display: flex;
+            align-items: center;
+        }
+        .hour i {
+            margin-right: 10px;
+            color: #ffd700;
+        }
+        .hour-price {
+            font-size: 1.2rem;
+            color: #000102;
+            padding: 5px;
+        }
+        .hour-price p {
+            font-size: 0.9rem;
+            color: #000102;
+            margin: 0;
+        }
+        .inqury_btn, .whatsapp_btn {
+            text-align: center;
+            display: flex;
+            margin-top: 20px;
+        }
+        .inqury_btn a{
+            text-decoration: none;
+            /* background: #00aaff; */
+            color: white;
+            height: 40px;
+            padding: 1px 1px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .whatsapp_btn a{
+            position: relative;
+            bottom: 50px;
+            text-decoration: none;
+            font-size: 39px;
+            /* background: #00aaff; */
+            color: rgb(73, 197, 71);
+            margin-left:  300px;
+            /* border-radius: 5px; */
+            transition: background 0.3s;
+        }
+        ..whatsapp_btn a:hover{
+
+        }
+        .inqury_btn a:hover {
+            /* background: #0077cc; */
+        }
+        .Booking_btn {
+    position: relative; /* Position relative for absolute children */
+    text-align: center;
+    margin-top: 20px;
+}
+
+.Booking_btn a {
+    text-decoration: none;
+    position: relative;
+    bottom: 100%;
+    color: white;
+    padding: 10px 15px;
+    background: #0077cc; /* Button background color */
+    border-radius: 5px;
+    transition: background 0.3s;
+    display: inline-flex;
+    align-items: center;
+}
+
+.Booking_btn a:hover {
+    text-decoration: none;
+    color: white;
+    background: #2a516c; /* Darker shade on hover */
+}
+
+.car-animation {
+    position: absolute;
+    width: 50px; /* Adjust size of the car */
+    height: 30px; /* Adjust size of the car */
+    background: url('images/FEATURED_Coach_EXT_V2-e1695212502670.webp.pagespeed.ce.CEk72zI3Wi.webp') no-repeat center center; /* Use your car image */
+    background-size: contain;
+    display: none; /* Hide initially */
+    animation: travel 1s forwards; /* Animation to move the car */
+}
+
+@keyframes travel {
+    from {
+        transform: translateX(0);
+        bottom: 0;
+        opacity: 1;
+    }
+    to {
+        transform: translateX(300px); /* Change this value based on your layout */
+        bottom: 50px; /* Raise the car a bit */
+        opacity: 0; /* Fade out */
+    }
+}
+@media (max-width: 768px) {
+            .cards {
+                padding: 20px;
+            }
+            .whatsapp_btn a {
+                margin-left: auto;
+                font-size: 30px;
+                bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Rental Cards</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Your existing CSS remains the same */
+    </style>
+</head>
+<body>
+
+    <div class="cards_all">
+        <!-- Original Card -->
+        <div class="cards">
+            <div class="card">
+                <img src="images/14-seater.webp" alt="">
+                <div class="card-title"><i class="bi bi-car-front"></i>Mercedes Sprinter</div>
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-clock"></i>Per Hour Rentals</div>
+                    <div class="hour-price">300.00 AED<p>1* Hour</p></div>
+                </div>
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-geo-alt"></i>Airport Transfer</div>
+                    <div class="hour-price">1050.00 AED<p>2* Hours</p></div>
+                </div>
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-calendar"></i>Full Day Rentals</div>
+                    <div class="hour-price">2300.00 AED<p>10* Hour</p></div>
+                </div>
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-calendar-week"></i>Weekly Rentals</div>
+                    <div class="hour-price">13999.00 AED<p>10* Hours</p></div>
+                </div>
+                <div class="inquiry_btn">  
+                    <a href="#">
+                        <i class="fas fa-info-circle" style="font-size: 20px;"></i> <!-- Inquiry icon -->
+                    </a>
+                </div>
+                         
+                
+                <div class="whatsapp_btn"> 
+                    <a href="https://wa.me/1234567890" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                </div>
+                <!-- Rental options content here -->
+                <div class="Booking_btn">
+                    <a href="#" class="bookingButton">Booking Now <i class="bi bi-car"></i></a>
+                    <div class="car-animation"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <img src="images/14-seater.webp" alt="">
+                <div class="card-title"><i class="bi bi-car-front"></i>Ford Transit</div>
+                <!-- Rental options content here -->
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-clock"></i>Per Hour Rentals</div>
+                    <div class="hour-price">300.00 AED<p>1* Hour</p></div>
+                </div>
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-geo-alt"></i>Airport Transfer</div>
+                    <div class="hour-price">1050.00 AED<p>2* Hours</p></div>
+                </div>
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-calendar"></i>Full Day Rentals</div>
+                    <div class="hour-price">2300.00 AED<p>10* Hour</p></div>
+                </div>
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-calendar-week"></i>Weekly Rentals</div>
+                    <div class="hour-price">13999.00 AED<p>10* Hours</p></div>
+                </div>
+                <div class="inquiry_btn">  
+                    <a href="#">
+                        <i class="fas fa-info-circle" style="font-size: 20px;"></i> <!-- Inquiry icon -->
+                    </a>
+                </div>
+                         
+                
+                <div class="whatsapp_btn"> 
+                    <a href="https://wa.me/1234567890" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                </div>
+               
+                <div class="Booking_btn">
+                    <a href="#" class="bookingButton">Booking Now <i class="bi bi-car"></i></a>
+                    <div class="car-animation"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cards">
+            <div class="card">
+                <img src="images/14-seater.webp" alt="">
+                <div class="card-title"><i class="bi bi-car-front"></i>Ford Transit</div>
+                <!-- Rental options content here -->
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-clock"></i>Per Hour Rentals</div>
+                    <div class="hour-price">300.00 AED<p>1* Hour</p></div>
+                </div>
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-geo-alt"></i>Airport Transfer</div>
+                    <div class="hour-price">1050.00 AED<p>2* Hours</p></div>
+                </div>
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-calendar"></i>Full Day Rentals</div>
+                    <div class="hour-price">2300.00 AED<p>10* Hour</p></div>
+                </div>
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-calendar-week"></i>Weekly Rentals</div>
+                    <div class="hour-price">13999.00 AED<p>10* Hours</p></div>
+                </div>
+                <div class="inquiry_btn">  
+                    <a href="#">
+                        <i class="fas fa-info-circle" style="font-size: 20px;"></i> <!-- Inquiry icon -->
+                    </a>
+                </div>
+                         
+                
+                <div class="whatsapp_btn"> 
+                    <a href="https://wa.me/1234567890" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                </div>
+               
+                <div class="Booking_btn">
+                    <a href="#" class="bookingButton">Booking Now <i class="bi bi-car"></i></a>
+                    <div class="car-animation"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cards">
+            <div class="card">
+                <img src="images/14-seater.webp" alt="">
+                <div class="card-title"><i class="bi bi-car-front"></i>Ford Transit</div>
+                <!-- Rental options content here -->
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-clock"></i>Per Hour Rentals</div>
+                    <div class="hour-price">300.00 AED<p>1* Hour</p></div>
+                </div>
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-geo-alt"></i>Airport Transfer</div>
+                    <div class="hour-price">1050.00 AED<p>2* Hours</p></div>
+                </div>
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-calendar"></i>Full Day Rentals</div>
+                    <div class="hour-price">2300.00 AED<p>10* Hour</p></div>
+                </div>
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-calendar-week"></i>Weekly Rentals</div>
+                    <div class="hour-price">13999.00 AED<p>10* Hours</p></div>
+                </div>
+                <div class="inquiry_btn">  
+                    <a href="#">
+                        <i class="fas fa-info-circle" style="font-size: 20px;"></i> <!-- Inquiry icon -->
+                    </a>
+                </div>
+                         
+                
+                <div class="whatsapp_btn"> 
+                    <a href="https://wa.me/1234567890" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                </div>
+               
+                <div class="Booking_btn">
+                    <a href="#" class="bookingButton">Booking Now <i class="bi bi-car"></i></a>
+                    <div class="car-animation"></div>
+                </div>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <img src="images/14-seater.webp" alt="">
+                <div class="card-title"><i class="bi bi-car-front"></i>Ford Transit</div>
+                <!-- Rental options content here -->
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-clock"></i>Per Hour Rentals</div>
+                    <div class="hour-price">300.00 AED<p>1* Hour</p></div>
+                </div>
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-geo-alt"></i>Airport Transfer</div>
+                    <div class="hour-price">1050.00 AED<p>2* Hours</p></div>
+                </div>
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-calendar"></i>Full Day Rentals</div>
+                    <div class="hour-price">2300.00 AED<p>10* Hour</p></div>
+                </div>
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-calendar-week"></i>Weekly Rentals</div>
+                    <div class="hour-price">13999.00 AED<p>10* Hours</p></div>
+                </div>
+                <div class="inquiry_btn">  
+                    <a href="#">
+                        <i class="fas fa-info-circle" style="font-size: 20px;"></i> <!-- Inquiry icon -->
+                    </a>
+                </div>
+                         
+                
+                <div class="whatsapp_btn"> 
+                    <a href="https://wa.me/1234567890" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                </div>
+               
+                <div class="Booking_btn">
+                    <a href="#" class="bookingButton">Booking Now <i class="bi bi-car"></i></a>
+                    <div class="car-animation"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Duplicate this section for each of the six additional cards -->
+        <div class="cards">
+            <div class="card">
+                <img src="images/FEATURED_Coach_EXT_V2-e1695212502670.webp.pagespeed.ce.CEk72zI3Wi.webp" alt="">
+                <div class="card-title"><i class="bi bi-car-front"></i>Ford Transit</div>
+                <!-- Rental options content here -->
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-clock"></i>Per Hour Rentals</div>
+                    <div class="hour-price">300.00 AED<p>1* Hour</p></div>
+                </div>
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-geo-alt"></i>Airport Transfer</div>
+                    <div class="hour-price">1050.00 AED<p>2* Hours</p></div>
+                </div>
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-calendar"></i>Full Day Rentals</div>
+                    <div class="hour-price">2300.00 AED<p>10* Hour</p></div>
+                </div>
+                <div class="rental-options">
+                    <div class="hour"><i class="bi bi-calendar-week"></i>Weekly Rentals</div>
+                    <div class="hour-price">13999.00 AED<p>10* Hours</p></div>
+                </div>
+                <div class="inquiry_btn">  
+                    <a href="#">
+                        <i class="fas fa-info-circle" style="font-size: 20px;"></i> <!-- Inquiry icon -->
+                    </a>
+                </div>
+                         
+                
+                <div class="whatsapp_btn"> 
+                    <a href="https://wa.me/1234567890" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                </div>
+               
+                <div class="Booking_btn">
+                    <a href="#" class="bookingButton">Booking Now <i class="bi bi-car"></i></a>
+                    <div class="car-animation"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Repeat the card structure for a total of 6 additional cards -->
+        <!-- Remember to replace image sources and adjust text as needed -->
+
+    </div>
+    
+
+    <script>
+        document.querySelectorAll(".bookingButton").forEach(button => {
+            button.addEventListener("click", function(event) {
+                event.preventDefault();
+                const carAnimation = this.nextElementSibling;
+                carAnimation.style.display = 'block';
+                carAnimation.classList.add("travel");
+
+                carAnimation.addEventListener("animationend", function() {
+                    carAnimation.style.display = 'none';
+                    carAnimation.classList.remove("travel");
+                }, { once: true });
+            });
+        });
+    </script>
+    
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
