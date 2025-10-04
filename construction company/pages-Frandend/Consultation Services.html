@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultation Services | MK Construction</title>
+    <meta name="description" content="Professional construction consultation services in Dubai">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0b3d91;
+            --secondary: #d4af37;
+            --dark: #1a365d;
+            --light: #f8f9fa;
+            --gray: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background-color: var(--light);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background-color: #fff;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            color: var(--secondary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover:after,
+        .nav-link.active:after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background-color: var(--dark);
+            margin: 5px 0;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .page-hero {
+            position: relative;
+            height: 50vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg') center/cover no-repeat;
+            color: white;
+            padding-top: 80px;
+            margin-bottom: 60px;
+        }
+
+        .page-hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .page-hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb-item {
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .breadcrumb-item:not(:last-child):after {
+            content: '/';
+            position: absolute;
+            right: -15px;
+            top: 0;
+            color: var(--secondary);
+        }
+
+        .breadcrumb-link {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .breadcrumb-link:hover {
+            color: var(--secondary);
+        }
+
+        .breadcrumb-item.active .breadcrumb-link {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Consultation Services */
+        .consultation-services {
+            background-color: white;
+            border-radius: 10px;
+            padding: 50px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+        }
+
+        .service-process {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            background: var(--light);
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 30px;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 30px;
+            height: 30px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .process-step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .process-step p {
+            color: var(--gray);
+        }
+
+        /* Consultation Areas */
+        .consultation-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .area-card {
+            background: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .area-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .area-icon {
+            height: 200px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 50px;
+        }
+
+        .area-content {
+            padding: 25px;
+        }
+
+        .area-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .area-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .area-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .area-features li i {
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(rgba(11, 61, 145, 0.9), rgba(11, 61, 145, 0.9)), url('https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg') center/cover fixed no-repeat;
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+            border-radius: 10px;
+            margin-bottom: 60px;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            background-color: #c69c23;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: white;
+            border-radius: 10px;
+            padding: 50px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 15px 0;
+        }
+
+        .faq-question h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .faq-icon {
+            color: var(--secondary);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-answer p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 15px 0;
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 0;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-col p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        .footer-newsletter p {
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .newsletter-btn {
+            background: var(--secondary);
+            color: var(--dark);
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            z-index: 100;
+            animation: pulse 1.5s infinite;
+            text-decoration: none;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .page-hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s ease;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .hamburger-line:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .hamburger.active .hamburger-line:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .hamburger-line:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+            
+            .page-hero-title {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .consultation-services, .faq-section {
+                padding: 30px 20px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-col h4:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-contact li {
+                justify-content: center;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 5px;
+                padding: 12px;
+            }
+            
+            .breadcrumb {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .breadcrumb-item {
+                margin: 5px 0;
+            }
+            
+            .breadcrumb-item:not(:last-child):after {
+                display: none;
+            }
+        }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+    <div class="container header-container">
+        <div class="logo">
+            <div class="logo-img">MK</div>
+            <div class="logo-text">MK <span>Construction</span></div>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+            <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        
+        <div class="hamburger">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </div>
+    </div>
+</header>
+
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="container page-hero-content">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html" class="breadcrumb-link">Home</a></li>
+            <li class="breadcrumb-item"><a href="services.html" class="breadcrumb-link">Services</a></li>
+            <li class="breadcrumb-item active"><a href="#" class="breadcrumb-link">Consultation Services</a></li>
+        </ul>
+        <h1 class="page-hero-title">Professional Construction Consultation</h1>
+    </div>
+</section>
+
+<!-- Consultation Services Section -->
+<section class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Consultation Services</h2>
+            <p>Expert guidance for your construction projects from concept to completion</p>
+        </div>
+        
+        <div class="consultation-services">
+            <div class="service-process">
+                <div class="process-step reveal">
+                    <div class="step-icon" style="position: relative;">
+                        <i class="fas fa-clipboard-list"></i>
+                        <div class="step-number">1</div>
+                    </div>
+                    <h3>Initial Assessment</h3>
+                    <p>We begin with a comprehensive evaluation of your project requirements, budget, and timeline to understand your vision.</p>
+                </div>
+                
+                <div class="process-step reveal">
+                    <div class="step-icon" style="position: relative;">
+                        <i class="fas fa-drafting-compass"></i>
+                        <div class="step-number">2</div>
+                    </div>
+                    <h3>Planning & Design</h3>
+                    <p>Our experts develop detailed plans, considering regulations, sustainability, and functionality.</p>
+                </div>
+                
+                <div class="process-step reveal">
+                    <div class="step-icon" style="position: relative;">
+                        <i class="fas fa-calculator"></i>
+                        <div class="step-number">3</div>
+                    </div>
+                    <h3>Cost Estimation</h3>
+                    <p>We provide accurate cost projections and value engineering solutions to maximize your investment.</p>
+                </div>
+                
+                <div class="process-step reveal">
+                    <div class="step-icon" style="position: relative;">
+                        <i class="fas fa-handshake"></i>
+                        <div class="step-number">4</div>
+                    </div>
+                    <h3>Implementation Support</h3>
+                    <p>Ongoing consultation during construction to ensure quality, compliance, and timely completion.</p>
+                </div>
+            </div>
+            
+            <div class="consultation-areas">
+                <div class="area-card reveal">
+                    <div class="area-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="area-content">
+                        <h3>Residential Consultation</h3>
+                        <p>Expert guidance for residential projects from single homes to large residential complexes.</p>
+                        <ul class="area-features">
+                            <li><i class="fas fa-check"></i> Space planning & optimization</li>
+                            <li><i class="fas fa-check"></i> Material selection guidance</li>
+                            <li><i class="fas fa-check"></i> Regulatory compliance</li>
+                            <li><i class="fas fa-check"></i> Sustainability integration</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="area-card reveal">
+                    <div class="area-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="area-content">
+                        <h3>Commercial Consultation</h3>
+                        <p>Specialized advice for commercial properties including offices, retail spaces, and mixed-use developments.</p>
+                        <ul class="area-features">
+                            <li><i class="fas fa-check"></i> Functional layout design</li>
+                            <li><i class="fas fa-check"></i> Code compliance review</li>
+                            <li><i class="fas fa-check"></i> Tenant improvement planning</li>
+                            <li><i class="fas fa-check"></i> ROI optimization</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="area-card reveal">
+                    <div class="area-icon">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <div class="area-content">
+                        <h3>Infrastructure Consultation</h3>
+                        <p>Expert guidance on large-scale infrastructure projects including roads, utilities, and public works.</p>
+                        <ul class="area-features">
+                            <li><i class="fas fa-check"></i> Feasibility studies</li>
+                            <li><i class="fas fa-check"></i> Environmental impact assessment</li>
+                            <li><i class="fas fa-check"></i> Project phasing strategies</li>
+                            <li><i class="fas fa-check"></i> Public safety considerations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section">
+    <div class="container">
+        <div class="cta-section">
+            <div class="cta-content">
+                <h2>Start Your Project With Expert Guidance</h2>
+                <p>Our consultation services ensure your construction project is well-planned, cost-effective, and compliant with all regulations.</p>
+                <div>
+                    <a href="contact.html" class="btn btn-primary">Request Consultation</a>
+                    <a href="tel:+971123456789" class="btn btn-outline">Call Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section">
+    <div class="container">
+        <div class="faq-section">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our consultation services</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3>What is included in your initial consultation?</h3>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our initial consultation includes a comprehensive project assessment, preliminary budget estimation, timeline projection, and identification of potential challenges and opportunities. We'll also discuss your goals, requirements, and vision for the project.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3>How long does the consultation process typically take?</h3>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The duration depends on the project's complexity. A basic consultation can be completed in 1-2 weeks, while more complex projects may require 3-4 weeks for thorough analysis and planning.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3>Do you assist with obtaining permits and approvals?</h3>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we provide guidance through the entire permitting process. Our team is familiar with Dubai's regulations and can help navigate the approval process efficiently, potentially saving you time and avoiding costly delays.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3>Can you help with cost-saving strategies?</h3>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. Our value engineering approach identifies opportunities to reduce costs without compromising quality. We analyze materials, methods, and design alternatives to maximize your return on investment.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3>Do you provide ongoing consultation during construction?</h3>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer ongoing consultation services to ensure your project stays on track. We can provide site visits, progress evaluations, and problem-solving support throughout the construction phase.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container footer-container">
+        <div class="footer-col">
+            <h4>About MK Construction</h4>
+            <p>MK Construction is a leading construction company in Dubai, specializing in residential, commercial, and infrastructure projects with a commitment to quality and excellence.</p>
+            <div class="contact-social">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Services</h4>
+            <ul class="footer-links">
+                <li><a href="#">Residential Construction</a></li>
+                <li><a href="#">Commercial Construction</a></li>
+                <li><a href="#">Infrastructure Development</a></li>
+                <li><a href="#">Renovation & Fit-out</a></li>
+                <li><a href="#">Project Management</a></li>
+                <li><a href="consultation.html">Consultation Services</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Contact Info</h4>
+            <ul class="footer-contact">
+                <li><i class="fas fa-map-marker-alt"></i> Office 102, Business Bay, Dubai, UAE</li>
+                <li><i class="fas fa-phone-alt"></i> +971 123 456 789</li>
+                <li><i class="fas fa-envelope"></i> info@mkconstruction.ae</li>
+                <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 6:00 PM</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2023 MK Construction. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/971123456789" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+    // Sticky Header
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Mobile Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            // Close all other items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            item.classList.toggle('active');
+        });
+    });
+
+    // Scroll reveal animation
+    function revealElements() {
+        const reveals = document.querySelectorAll('.reveal');
+        
+        for (let i = 0; i < reveals.length; i++) {
+            const windowHeight = window.innerHeight;
+            const elementTop = reveals[i].getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add('active');
+            }
+        }
+    }
+
+    window.addEventListener('scroll', revealElements);
+    revealElements(); // Initial check
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials | MK Construction</title>
+    <meta name="description" content="Hear what our clients say about MK Construction's exceptional service and quality work in Dubai">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0b3d91;
+            --secondary: #d4af37;
+            --dark: #1a365d;
+            --light: #f8f9fa;
+            --gray: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background-color: var(--light);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background-color: #fff;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            color: var(--secondary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin: 0 15px;
+        }
+
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover:after,
+        .nav-link.active:after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background-color: var(--dark);
+            margin: 5px 0;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .page-hero {
+            position: relative;
+            height: 40vh;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.pexels.com/photos/3184398/pexels-photo-3184398.jpeg') center/cover no-repeat;
+            color: white;
+            padding-top: 80px;
+            margin-bottom: 60px;
+        }
+
+        .page-hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .page-hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb-item {
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .breadcrumb-item:not(:last-child):after {
+            content: '/';
+            position: absolute;
+            right: -15px;
+            top: 0;
+            color: var(--secondary);
+        }
+
+        .breadcrumb-link {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .breadcrumb-link:hover {
+            color: var(--secondary);
+        }
+
+        .breadcrumb-item.active .breadcrumb-link {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: #f9f9f9;
+            padding: 80px 0;
+            border-radius: 10px;
+            margin-bottom: 60px;
+        }
+
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 0 15px 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            position: relative;
+            color: var(--dark);
+        }
+
+        .testimonial-text:before,
+        .testimonial-text:after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .testimonial-text:before {
+            top: -20px;
+            left: -10px;
+        }
+
+        .testimonial-text:after {
+            bottom: -40px;
+            right: -10px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+            border: 3px solid var(--secondary);
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .testimonial-info p {
+            color: var(--gray);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-project {
+            font-style: italic;
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(rgba(11, 61, 145, 0.9), rgba(11, 61, 145, 0.9)), url('https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg') center/cover fixed no-repeat;
+            color: white;
+            padding: 80px 0;
+            border-radius: 10px;
+            margin-bottom: 60px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Video Testimonials */
+        .video-testimonials {
+            margin-bottom: 60px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .video-placeholder {
+            height: 200px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 50px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .video-placeholder:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            content: '\f04b';
+            font-size: 20px;
+            padding-left: 5px;
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .video-client {
+            color: var(--gray);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .video-project {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: white;
+            padding: 80px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--gray);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #0a3279;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 0;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-col p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        .footer-newsletter p {
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .newsletter-btn {
+            background: var(--secondary);
+            color: var(--dark);
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            z-index: 100;
+            animation: pulse 1.5s infinite;
+            text-decoration: none;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .page-hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s ease;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .hamburger-line:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .hamburger.active .hamburger-line:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .hamburger-line:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+            
+            .page-hero-title {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .testimonial-card {
+                padding: 30px 20px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-col h4:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-contact li {
+                justify-content: center;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 5px;
+                padding: 12px;
+            }
+            
+            .breadcrumb {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .breadcrumb-item {
+                margin: 5px 0;
+            }
+            
+            .breadcrumb-item:not(:last-child):after {
+                display: none;
+            }
+            
+            .testimonial-author {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .testimonial-avatar {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+    <div class="container header-container">
+        <div class="logo">
+            <div class="logo-img">MK</div>
+            <div class="logo-text">MK <span>Construction</span></div>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+            <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="testimonials.html" class="nav-link active">Testimonials</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        
+        <div class="hamburger">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </div>
+    </div>
+</header>
+
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="container page-hero-content">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html" class="breadcrumb-link">Home</a></li>
+            <li class="breadcrumb-item active"><a href="#" class="breadcrumb-link">Testimonials</a></li>
+        </ul>
+        <h1 class="page-hero-title">What Our Clients Say</h1>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="section testimonials-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Client Testimonials</h2>
+            <p>Hear from our satisfied clients about their experience working with MK Construction</p>
+        </div>
+        
+        <div class="testimonials-container">
+            <div class="testimonial-card reveal">
+                <div class="testimonial-text">
+                    MK Construction delivered our luxury villa project on time and within budget. Their attention to detail and commitment to quality exceeded our expectations. We couldn't be happier with the results. The team was professional, responsive, and truly cared about bringing our vision to life.
+                </div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ahmed Al Maktoum">
+                    </div>
+                    <div class="testimonial-info">
+                        <h4>Ahmed Al Maktoum</h4>
+                        <p>Palm Jumeirah Villa Project</p>
+                        <div class="testimonial-project">Luxury Villa Construction</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card reveal">
+                <div class="testimonial-text">
+                    We chose MK Construction for our office building project, and they delivered beyond our expectations. Their expertise in commercial construction was evident throughout the process. The project was completed ahead of schedule, and the quality of work is exceptional. I would highly recommend them for any commercial project.
+                </div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
+                    </div>
+                    <div class="testimonial-info">
+                        <h4>Sarah Johnson</h4>
+                        <p>Business Bay Office Tower</p>
+                        <div class="testimonial-project">Commercial Office Building</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card reveal">
+                <div class="testimonial-text">
+                    The renovation of our apartment was handled with utmost professionalism by MK Construction. They understood our needs perfectly and provided creative solutions that enhanced our space. The team was clean, respectful of our home, and completed the project with minimal disruption to our daily lives.
+                </div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Raj Patel">
+                    </div>
+                    <div class="testimonial-info">
+                        <h4>Raj Patel</h4>
+                        <p>Downtown Dubai Apartment</p>
+                        <div class="testimonial-project">Apartment Renovation</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card reveal">
+                <div class="testimonial-text">
+                    As a hotel chain, we have high standards for our properties. MK Construction not only met but exceeded these standards in our recent hotel renovation. Their ability to work within our operational constraints while delivering exceptional quality was impressive. We've since hired them for two additional projects.
+                </div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Elena Rodriguez">
+                    </div>
+                    <div class="testimonial-info">
+                        <h4>Elena Rodriguez</h4>
+                        <p>Hospitality Group Director</p>
+                        <div class="testimonial-project">Hotel Renovation</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Achievements</h2>
+            <p>Numbers that speak about our commitment and excellence in construction</p>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-item reveal">
+                <div class="stat-number" data-count="250">0</div>
+                <div class="stat-text">Projects Completed</div>
+            </div>
+            
+            <div class="stat-item reveal">
+                <div class="stat-number" data-count="98">0</div>
+                <div class="stat-text">Client Satisfaction (%)</div>
+            </div>
+            
+            <div class="stat-item reveal">
+                <div class="stat-number" data-count="15">0</div>
+                <div class="stat-text">Years of Experience</div>
+            </div>
+            
+            <div class="stat-item reveal">
+                <div class="stat-number" data-count="50">0</div>
+                <div class="stat-text">Awards Received</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Video Testimonials -->
+<section class="section video-testimonials">
+    <div class="container">
+        <div class="section-title">
+            <h2>Video Testimonials</h2>
+            <p>Watch our clients share their experiences in their own words</p>
+        </div>
+        
+        <div class="video-grid">
+            <div class="video-card reveal">
+                <div class="video-placeholder">
+                    <!-- In a real implementation, this would be a video player -->
+                </div>
+                <div class="video-info">
+                    <h3>Exceptional Quality & Professionalism</h3>
+                    <p class="video-client">Mohammed Hassan - Jumeirah Villa</p>
+                    <p class="video-project">Residential Construction</p>
+                </div>
+            </div>
+            
+            <div class="video-card reveal">
+                <div class="video-placeholder">
+                    <!-- In a real implementation, this would be a video player -->
+                </div>
+                <div class="video-info">
+                    <h3>On-Time Delivery Despite Challenges</h3>
+                    <p class="video-client">James Wilson - DIFC Office</p>
+                    <p class="video-project">Commercial Fit-Out</p>
+                </div>
+            </div>
+            
+            <div class="video-card reveal">
+                <div class="video-placeholder">
+                    <!-- In a real implementation, this would be a video player -->
+                </div>
+                <div class="video-info">
+                    <h3>Transparent Process & Great Communication</h3>
+                    <p class="video-client">Layla Ahmed - Arabian Ranches</p>
+                    <p class="video-project">Villa Extension</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Join our list of satisfied clients and experience the MK Construction difference</p>
+            <a href="contact.html" class="btn btn-primary">Get a Free Quote</a>
+            <a href="projects.html" class="btn btn-outline">View Our Projects</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container footer-container">
+        <div class="footer-col">
+            <h4>MK Construction</h4>
+            <p>Providing exceptional construction services in Dubai and across the UAE with quality, integrity, and innovation.</p>
+            <div class="footer-contact">
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Business Bay, Dubai, UAE</li>
+                    <li><i class="fas fa-phone"></i> +971 4 123 4567</li>
+                    <li><i class="fas fa-envelope"></i> info@mkconstruction.com</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Our Services</h4>
+            <ul class="footer-links">
+                <li><a href="#">Residential Construction</a></li>
+                <li><a href="#">Commercial Construction</a></li>
+                <li><a href="#">Interior Fit-Out</a></li>
+                <li><a href="#">Renovation & remodeling</a></li>
+                <li><a href="#">Project Management</a></li>
+                <li><a href="#">Consultation</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Newsletter</h4>
+            <p>Subscribe to our newsletter to get updates on our latest projects and promotions.</p>
+            <div class="footer-newsletter">
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email">
+                    <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2023 MK Construction. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: #d4af37;"></i></p>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/97141234567" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+<script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+    
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }));
+    
+    // Reveal animation on scroll
+    function reveal() {
+        const reveals = document.querySelectorAll('.reveal');
+        
+        for (let i = 0; i < reveals.length; i++) {
+            const windowHeight = window.innerHeight;
+            const elementTop = reveals[i].getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add('active');
+                
+                // If it's a stat number, initialize counter if not already started
+                if (reveals[i].classList.contains('stat-number') && !reveals[i].hasAttribute('data-started')) {
+                    reveals[i].setAttribute('data-started', 'true');
+                    animateCounter(reveals[i]);
+                }
+            }
+        }
+    }
+    
+    window.addEventListener('scroll', reveal);
+    reveal(); // To check on initial load
+    
+    // Counter animation for stats
+    function animateCounter(counter) {
+        const target = +counter.getAttribute('data-count');
+        const duration = 2000; // Animation duration in ms
+        const frameDuration = 1000 / 60; // 60fps
+        const totalFrames = Math.round(duration / frameDuration);
+        let frame = 0;
+        
+        const counterInterval = setInterval(() => {
+            frame++;
+            const progress = frame / totalFrames;
+            const currentCount = Math.round(target * progress);
+            
+            if (parseInt(counter.innerText) !== currentCount) {
+                counter.innerText = currentCount;
+            }
+            
+            if (frame === totalFrames) {
+                clearInterval(counterInterval);
+                counter.innerText = target; // Ensure it ends exactly at the target
+            }
+        }, frameDuration);
+    }
+    
+    // Initialize counters when stats section is in view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counters = document.querySelectorAll('.stat-number');
+                counters.forEach(counter => {
+                    if (!counter.hasAttribute('data-started')) {
+                        counter.setAttribute('data-started', 'true');
+                        animateCounter(counter);
+                    }
+                });
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    const statsSection = document.querySelector('.stats-section');
+    if (statsSection) {
+        observer.observe(statsSection);
+    }
+    
+    // Testimonial carousel functionality
+    let testimonialIndex = 0;
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    
+    function showTestimonials() {
+        // Hide all testimonials
+        testimonialCards.forEach(card => {
+            card.style.display = 'none';
+        });
+        
+        // Show current testimonial
+        if (testimonialCards[testimonialIndex]) {
+            testimonialCards[testimonialIndex].style.display = 'block';
+        }
+    }
+    
+    // Auto-rotate testimonials
+    setInterval(() => {
+        testimonialIndex = (testimonialIndex + 1) % testimonialCards.length;
+        showTestimonials();
+    }, 5000);
+    
+    // Initialize testimonials
+    showTestimonials();
+    
+    // Video placeholder click handler
+    const videoPlaceholders = document.querySelectorAll('.video-placeholder');
+    videoPlaceholders.forEach(placeholder => {
+        placeholder.addEventListener('click', function() {
+            alert('In a real implementation, this would play a video testimonial.');
+        });
+    });
+</script>

@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commercial Construction Services | MK Construction</title>
+    <meta name="description" content="Professional commercial construction services including offices, retail spaces, and commercial complexes in Dubai">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0b3d91;
+            --secondary: #d4af37;
+            --dark: #1a365d;
+            --light: #f8f9fa;
+            --gray: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background-color: var(--light);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background-color: #fff;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            color: var(--secondary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin: 0 15px;
+        }
+
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover:after,
+        .nav-link.active:after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background-color: var(--dark);
+            margin: 5px 0;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .page-hero {
+            position: relative;
+            height: 50vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.pexels.com/photos/358274/pexels-photo-358274.jpeg') center/cover no-repeat;
+            color: white;
+            padding-top: 80px;
+            margin-bottom: 60px;
+        }
+
+        .page-hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .page-hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb-item {
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .breadcrumb-item:not(:last-child):after {
+            content: '/';
+            position: absolute;
+            right: -15px;
+            top: 0;
+            color: var(--secondary);
+        }
+
+        .breadcrumb-link {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .breadcrumb-link:hover {
+            color: var(--secondary);
+        }
+
+        .breadcrumb-item.active .breadcrumb-link {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Service Details */
+        .service-details {
+            background-color: white;
+            border-radius: 10px;
+            padding: 50px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+        }
+
+        .service-overview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+            align-items: center;
+        }
+
+        .service-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .service-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-content h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .service-features li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .service-features li i {
+            color: var(--secondary);
+            font-size: 20px;
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+
+        /* Service Types */
+        .service-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .type-card {
+            background: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .type-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .type-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .type-card:hover .type-image img {
+            transform: scale(1.1);
+        }
+
+        .type-content {
+            padding: 25px;
+        }
+
+        .type-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .type-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .type-features {
+            list-style: none;
+        }
+
+        .type-features li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .type-features li i {
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+
+        /* Process Section */
+        .process-section {
+            background-color: #f9f9f9;
+            padding: 80px 0;
+            border-radius: 10px;
+            margin-bottom: 60px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            counter-reset: process-counter;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .process-step:before {
+            counter-increment: process-counter;
+            content: counter(process-counter);
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .step-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--dark);
+            font-size: 24px;
+        }
+
+        .process-step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .process-step p {
+            color: var(--gray);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(rgba(11, 61, 145, 0.9), rgba(11, 61, 145, 0.9)), url('https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg') center/cover fixed no-repeat;
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+            border-radius: 10px;
+            margin-bottom: 60px;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            background-color: #c69c23;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Projects Showcase */
+        .projects-showcase {
+            margin-bottom: 60px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-item:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 25px;
+            background: white;
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .project-info p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 0;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-col p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        .footer-newsletter p {
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .newsletter-btn {
+            background: var(--secondary);
+            color: var(--dark);
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            z-index: 100;
+            animation: pulse 1.5s infinite;
+            text-decoration: none;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .page-hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .service-overview {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .service-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s ease;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .hamburger-line:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .hamburger.active .hamburger-line:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .hamburger-line:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+            
+            .page-hero-title {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .service-details {
+                padding: 30px 20px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-col h4:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-contact li {
+                justify-content: center;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 5px;
+                padding: 12px;
+            }
+            
+            .breadcrumb {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .breadcrumb-item {
+                margin: 5px 0;
+            }
+            
+            .breadcrumb-item:not(:last-child):after {
+                display: none;
+            }
+        }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+    <div class="container header-container">
+        <div class="logo">
+            <div class="logo-img">MK</div>
+            <div class="logo-text">MK <span>Construction</span></div>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+            <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        
+        <div class="hamburger">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </div>
+    </div>
+</header>
+
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="container page-hero-content">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html" class="breadcrumb-link">Home</a></li>
+            <li class="breadcrumb-item"><a href="services.html" class="breadcrumb-link">Services</a></li>
+            <li class="breadcrumb-item active"><a href="#" class="breadcrumb-link">Commercial Construction</a></li>
+        </ul>
+        <h1 class="page-hero-title">Commercial Construction Services</h1>
+    </div>
+</section>
+
+<!-- Service Details Section -->
+<section class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Building for Business Success</h2>
+            <p>Expert commercial construction solutions designed to enhance productivity and brand image</p>
+        </div>
+        
+        <div class="service-details">
+            <div class="service-overview">
+                <div class="service-content">
+                    <h2>Premium Commercial Construction</h2>
+                    <p>At MK Construction, we specialize in creating exceptional commercial spaces that combine functionality, aesthetics, and efficiency. With our extensive experience in Dubai's dynamic business environment, we understand the unique requirements of commercial projects.</p>
+                    <p>From corporate offices to retail complexes, we deliver commercial spaces that enhance productivity, reflect brand identity, and provide exceptional value for your investment.</p>
+                    
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> Office buildings and corporate headquarters</li>
+                        <li><i class="fas fa-check-circle"></i> Retail centers and shopping malls</li>
+                        <li><i class="fas fa-check-circle"></i> Hospitality and entertainment venues</li>
+                        <li><i class="fas fa-check-circle"></i> Mixed-use developments</li>
+                        <li><i class="fas fa-check-circle"></i> Industrial and warehouse facilities</li>
+                        <li><i class="fas fa-check-circle"></i> Sustainable and green building practices</li>
+                    </ul>
+                </div>
+                
+                <div class="service-image reveal">
+                    <img src="https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg" alt="Commercial Construction">
+                </div>
+            </div>
+            
+            <div class="section-title">
+                <h2>Our Commercial Services</h2>
+                <p>Comprehensive solutions for all types of commercial projects</p>
+            </div>
+            
+            <div class="service-types">
+                <div class="type-card reveal">
+                    <div class="type-image">
+                        <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg" alt="Office Buildings">
+                    </div>
+                    <div class="type-content">
+                        <h3>Office Buildings</h3>
+                        <p>Modern office spaces designed for productivity, collaboration, and employee well-being.</p>
+                        <ul class="type-features">
+                            <li><i class="fas fa-check"></i> Open plan and private office layouts</li>
+                            <li><i class="fas fa-check"></i> Meeting rooms and conference facilities</li>
+                            <li><i class="fas fa-check"></i> Advanced technology infrastructure</li>
+                            <li><i class="fas fa-check"></i> Ergonomic and sustainable design</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="type-card reveal">
+                    <div class="type-image">
+                        <img src="https://images.pexels.com/photos/1307698/pexels-photo-1307698.jpeg" alt="Retail Spaces">
+                    </div>
+                    <div class="type-content">
+                        <h3>Retail & Shopping Centers</h3>
+                        <p>Engaging retail environments that enhance customer experience and drive sales.</p>
+                        <ul class="type-features">
+                            <li><i class="fas fa-check"></i> Storefront design and layout</li>
+                            <li><i class="fas fa-check"></i> Lighting and visual merchandising</li>
+                            <li><i class="fas fa-check"></i> Customer flow optimization</li>
+                            <li><i class="fas fa-check"></i> Brand integration and identity</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="type-card reveal">
+                    <div class="type-image">
+                        <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg" alt="Hospitality">
+                    </div>
+                    <div class="type-content">
+                        <h3>Hospitality Venues</h3>
+                        <p>Hotels, restaurants, and entertainment spaces designed for memorable guest experiences.</p>
+                        <ul class="type-features">
+                            <li><i class="fas fa-check"></i> Guest room and suite design</li>
+                            <li><i class="fas fa-check"></i> Restaurant and bar layouts</li>
+                            <li><i class="fas fa-check"></i> Event and conference facilities</li>
+                            <li><i class="fas fa-check"></i> Back-of-house operations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="section process-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Commercial Construction Process</h2>
+            <p>A systematic approach to delivering exceptional commercial projects</p>
+        </div>
+        
+        <div class="process-steps">
+            <div class="process-step reveal">
+                <div class="step-icon">
+                    <i class="fas fa-clipboard-list"></i>
+                </div>
+                <h3>Needs Assessment</h3>
+                <p>We begin by understanding your business objectives, operational requirements, and brand identity.</p>
+            </div>
+            
+            <div class="process-step reveal">
+                <div class="step-icon">
+                    <i class="fas fa-drafting-compass"></i>
+                </div>
+                <h3>Design & Planning</h3>
+                <p>Our architects create functional, efficient layouts that align with your business goals and budget.</p>
+            </div>
+            
+            <div class="process-step reveal">
+                <div class="step-icon">
+                    <i class="fas fa-hard-hat"></i>
+                </div>
+                <h3>Construction</h3>
+                <p>We execute the project with precision, minimizing disruption to your business operations.</p>
+            </div>
+            
+            <div class="process-step reveal">
+                <div class="step-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>Completion</h3>
+                <p>We deliver your commercial space ready for occupancy, with all systems operational.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Showcase -->
+<section class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Recent Commercial Projects</h2>
+            <p>Examples of our commercial construction expertise</p>
+        </div>
+        
+        <div class="projects-showcase">
+            <div class="projects-grid">
+                <div class="project-item reveal">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg" alt="Corporate Office Tower">
+                    </div>
+                    <div class="project-info">
+                        <h3>Dubai Financial Tower</h3>
+                        <p>25-story corporate office building with state-of-the-art facilities and sustainable design features.</p>
+                        <div class="project-meta">
+                            <span>Completion: 2023</span>
+                            <span>Size: 45,000 sq ft</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-item reveal">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/1090638/pexels-photo-1090638.jpeg" alt="Shopping Mall">
+                    </div>
+                    <div class="project-info">
+                        <h3>Marina Shopping Complex</h3>
+                        <p>Three-level retail center with 85 stores, food court, and entertainment facilities.</p>
+                        <div class="project-meta">
+                            <span>Completion: 2022</span>
+                            <span>Size: 120,000 sq ft</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-item reveal">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg" alt="Hotel Project">
+                    </div>
+                    <div class="project-info">
+                        <h3>Business Bay Hotel</h3>
+                        <p>Luxury hotel with 150 rooms, conference facilities, and premium dining options.</p>
+                        <div class="project-meta">
+                            <span>Completion: 2021</span>
+                            <span>Size: 85,000 sq ft</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section">
+    <div class="container">
+        <div class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Build Your Commercial Space?</h2>
+                <p>Contact us today to discuss your commercial project and get a personalized consultation.</p>
+                <div>
+                    <a href="contact.html" class="btn btn-primary">Start Your Project</a>
+                    <a href="tel:+971123456789" class="btn btn-outline">Call Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container footer-container">
+        <div class="footer-col">
+            <h4>About MK Construction</h4>
+            <p>MK Construction is a leading construction company in Dubai, specializing in residential, commercial, and infrastructure projects with a commitment to quality and excellence.</p>
+            <div class="contact-social">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Services</h4>
+            <ul class="footer-links">
+                <li><a href="residential.html">Residential Construction</a></li>
+                <li><a href="commercial.html">Commercial Construction</a></li>
+                <li><a href="infrastructure.html">Infrastructure Development</a></li>
+                <li><a href="renovation.html">Renovation & Fit-out</a></li>
+                <li><a href="project-management.html">Project Management</a></li>
+                <li><a href="consultation.html">Consultation Services</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Contact Info</h4>
+            <ul class="footer-contact">
+                <li><i class="fas fa-map-marker-alt"></i> Office 102, Business Bay, Dubai, UAE</li>
+                <li><i class="fas fa-phone-alt"></i> +971 123 456 789</li>
+                <li><i class="fas fa-envelope"></i> info@mkconstruction.ae</li>
+                <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 6:00 PM</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2023 MK Construction. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/971123456789" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+    // Sticky Header
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Mobile Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // Scroll reveal animation
+    function revealElements() {
+        const reveals = document.querySelectorAll('.reveal');
+        
+        for (let i = 0; i < reveals.length; i++) {
+            const windowHeight = window.innerHeight;
+            const elementTop = reveals[i].getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add('active');
+            }
+        }
+    }
+
+    window.addEventListener('scroll', revealElements);
+    revealElements(); // Initial check
+</script>
+
+</body>
+</html>
